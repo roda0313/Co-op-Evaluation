@@ -9,14 +9,6 @@ export default class Footer extends React.Component {
 		};
 	}
 
-  handelChange(e) {
-    const title = e.target.value;
-    this.props.changeTitle(title);
-  }
-
-	changeTitle(title){
-		this.setState({title})
-	}
 
   render() {
     return (

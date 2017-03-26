@@ -1,5 +1,5 @@
 {
-  "name": "react-tutorials",
+  "name": "Co-op Evaluation",
   "version": "0.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -15,13 +15,15 @@
     "babel-preset-stage-0": "^6.3.13",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
+
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.1"
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "webpack-dev-server --content-base src --inline --hot",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf ./bin; webpack -p --config webpack.production.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --content-base src --inline --hot"
   },
   "author": "",
   "license": "ISC"
