@@ -37,8 +37,13 @@
 	<!-- Main page content -->
 	<div class="container" align="Center">
 		<h1>Co-op Evaluation System<h1>
-		<a href="studentLogin.php"><button class="btn btn-primary">Student</button></a>
-		<a href="employeeLogin.php"><button class="btn btn-primary">Employee</button></a>
+		<form>
+			<div class="form-group">
+				<label for="link">Temporary Link</label>
+				<input type="text" class="form-control" id="link" aria-describedby="linkHelp" placeholder="Enter Temporary Link">
+				<small id="linkHelp" class="form-text text-muted">This link should have been provided by the student.</small>
+			</div>
+		</form>
 	</div>
 		
 	<div align="center">

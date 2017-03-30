@@ -1,4 +1,4 @@
-
+<?php session_start(); ?>
 <!doctype html>
 
 <html lang="en">
@@ -34,12 +34,31 @@
 		
 	</nav>	
 	
+	<?php if($_SESSION['loggedin'] == true) : ?>
 	<!-- Main page content -->
 	<div class="container" align="Center">
 		<h1>Co-op Evaluation System<h1>
-		<a href="studentLogin.php"><button class="btn btn-primary">Student</button></a>
-		<a href="employeeLogin.php"><button class="btn btn-primary">Employee</button></a>
+		<button class="btn btn-primary">Sign Out</button>
 	</div>
+	
+	
+	<?php else : ?>
+	<div class="container" align="Center">
+		<form method="POST" id="login" action="">
+			<div class="form-group">
+				<label for="username">Username</label>
+				<input type="text" class="form-control" id="username" placeholder="Username">
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" >
+			</div>
+			<button class="btn btn-default" type="submit">Sign In</button>			
+		</form>
+	</div>
+	
+	
+	<?php endif; ?>
 		
 	<div align="center">
 	  <footer>Email: <a href="mailto:djr9478@rit.edu" target="_top">djr9478@rit.edu </a> &copy TeamCoopEval</footer>
