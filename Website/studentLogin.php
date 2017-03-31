@@ -48,7 +48,7 @@
 	
 	<?php else : ?>
 	<div class="container" align="Center">
-		<form method="POST" id="login" action="<?php loginValid($_POST['username'], $_POST['password']) ?>">
+		<form method="POST" id="login" action="login.php">
 			<div class="form-group">
 				<label for="username">Username</label>
 				<input type="text" class="form-control" id="username" placeholder="Username">
@@ -57,7 +57,7 @@
 				<label for="password">Password</label>
 				<input type="password" class="form-control" id="password" >
 			</div>
-			<button class="btn btn-default" type="submit">Sign In</button>			
+			<button class="btn btn-primary" type="submit">Sign In</button>			
 		</form>
 	</div>
 	
@@ -70,30 +70,3 @@
 	
 </body>
 </html>
-
-<?php
-
-function loginValid($username, $password)
-{
-	$url = 'http://vm344f.se.rit.edu/API/API.php?team=general&function=login';
-	$myvars = 'username=' . $username . '&password=' . $password;
-	
-	$ch = curl_init( $url );
-	
-	curl_setopt( $ch, CURLOPT_POST, 1);
-	curl_setopt( $ch, CURLOPT_POSTFIELDS, $myvars);
-	curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
-	curl_setopt( $ch, CURLOPT_HEADER, 0);
-	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
-
-	$response = curl_exec( $ch );
-	$valid = json_decode($response);
-	
-	if ($valid)
-	{
-		$_SESSION['loggedin'] = true;
-		$GLOBALS['userInfo'] = $valid;
-	}
-}
-
-?>
