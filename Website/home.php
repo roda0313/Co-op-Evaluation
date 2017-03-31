@@ -70,7 +70,7 @@
 					foreach ($data as $arr)
 					{
 						echo '
-							<div class="container company">
+							<div class="company">
 								<h3>Name: ' . $arr['NAME'] . '</h3>
 								<h3>Address: ' . $arr['ADDRESS'] . '</h3>
 							</div>			
