@@ -12,6 +12,9 @@
 	<meta name="author" content="Daniel Roberts">
 	<meta name="viewport" content="width=device-width"/>
 	
+	<!-- External CSS -->
+	<link rel="stylesheet" href="home.css">
+	
 	<!-- JQuery -->
 	<script
 		src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -39,12 +42,12 @@
 	<?php if($_SESSION['loggedin'] == true) : ?>
 	<!-- Main page content -->
 	<div class="container" align="Center">
-		<h1>Co-op Evaluation System<h1>
-		<h3>Welcome <?php echo ($_SESSION['userInfo']['USERNAME']) ?><h3>
-		<a href="logout.php"><button class="btn btn-primary">Sign Out</button></a>
-		
-		<br><br>
-		<div class="container" align="center">
+		<div class="container solidBorder">
+			<h1>Co-op Evaluation System<h1>
+			<h3>Welcome <?php echo ($_SESSION['userInfo']['USERNAME']) ?><h3>
+			<a href="logout.php"><button class="btn btn-primary">Sign Out</button></a>
+		</div>
+		<div class="container allCompanies" align="center">
 			<?php
 			
 				$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getCompanies&StudentID=' . $_SESSION['userInfo']['ID'];
@@ -63,12 +66,12 @@
 				
 				if ($data)
 				{
-					echo '<h1>Comanies<h1>';
+					echo '<h1>Companies<h1>';
 					foreach ($data as $arr)
 					{
 						echo '
-							<div class="container">
-								<h3>Name: ' . $arr['NAME'] . '<h3></br>
+							<div class="container company">
+								<h3>Name: ' . $arr['NAME'] . '<h3>
 								<h3>Address: ' . $arr['ADDRESS'] . '<h3>
 							</div>			
 						';
