@@ -1,7 +1,7 @@
 <?php
-require("userInfo.php");
+session_start();
 
-if (isset($_POST['username']) && isset($_POST['password'])
+if (isset($_POST['username']) && isset($_POST['password']))
 {
 	login();
 }
@@ -20,12 +20,16 @@ function login()
 	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
 	$response = curl_exec( $ch );
-	$valid = json_decode($response);
+	$valid = json_decode($response, true);
 	
 	if ($valid)
 	{
 		$_SESSION['loggedin'] = true;
-		$GLOBALS['userInfo'] = $valid;
+		$_SESSION['userInfo'] = $valid;
+		
+		sleep(1);
+		header( 'Location: http://vm344f.se.rit.edu' ) ;
+		exit("Success");
 	}
 }
 

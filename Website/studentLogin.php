@@ -1,5 +1,4 @@
 <?php 
-	require("userInfo.php");
 	session_start(); 
 ?>
 <!doctype html>
@@ -41,8 +40,8 @@
 	<!-- Main page content -->
 	<div class="container" align="Center">
 		<h1>Co-op Evaluation System<h1>
-		<h3><?php echo $GLOBALS['userInfo'] ?><h3>
-		<button class="btn btn-primary">Sign Out</button>
+		<h3>Welcome <?php $_SESSION['userInfo']['username'] ?><h3>
+		<a href="logout.php"><button class="btn btn-primary">Sign Out</button></a>
 	</div>
 	
 	
@@ -51,11 +50,11 @@
 		<form method="POST" id="login" action="login.php">
 			<div class="form-group">
 				<label for="username">Username</label>
-				<input type="text" class="form-control" id="username" placeholder="Username">
+				<input type="text" class="form-control" id="username" placeholder="Username" name="username">
 			</div>
 			<div class="form-group">
 				<label for="password">Password</label>
-				<input type="password" class="form-control" id="password" >
+				<input type="password" class="form-control" id="password" placeholder="Password" name="password">
 			</div>
 			<button class="btn btn-primary" type="submit">Sign In</button>			
 		</form>
