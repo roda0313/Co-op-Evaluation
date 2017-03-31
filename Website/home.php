@@ -42,7 +42,7 @@
 	<?php if($_SESSION['loggedin'] == true) : ?>
 	<!-- Main page content -->
 	<div class="container" align="Center">
-		<div class="container solidBorder">
+		<div class="container loggedInHeader">
 			<h1>Co-op Evaluation System</h1>
 			<h3>Welcome <?php echo ($_SESSION['userInfo']['USERNAME']) ?></h3>
 			<a href="logout.php"><button class="btn btn-primary">Sign Out</button></a>
