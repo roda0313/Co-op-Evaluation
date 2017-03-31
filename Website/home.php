@@ -43,8 +43,8 @@
 	<!-- Main page content -->
 	<div class="container" align="Center">
 		<div class="container solidBorder">
-			<h1>Co-op Evaluation System<h1>
-			<h3>Welcome <?php echo ($_SESSION['userInfo']['USERNAME']) ?><h3>
+			<h1>Co-op Evaluation System</h1>
+			<h3>Welcome <?php echo ($_SESSION['userInfo']['USERNAME']) ?></h3>
 			<a href="logout.php"><button class="btn btn-primary">Sign Out</button></a>
 		</div>
 		<div class="container allCompanies" align="center">
@@ -66,13 +66,13 @@
 				
 				if ($data)
 				{
-					echo '<h1>Companies<h1>';
+					echo '<h1>Companies</h1>';
 					foreach ($data as $arr)
 					{
 						echo '
 							<div class="container company">
-								<h3>Name: ' . $arr['NAME'] . '<h3>
-								<h3>Address: ' . $arr['ADDRESS'] . '<h3>
+								<h3>Name: ' . $arr['NAME'] . '</h3>
+								<h3>Address: ' . $arr['ADDRESS'] . '</h3>
 							</div>			
 						';
 					}
