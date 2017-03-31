@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php 
+	session_start(); 
+?>
 <!doctype html>
 
 <html lang="en">
@@ -9,6 +11,9 @@
 	<meta name="description" content="Daniel Roberts Website">
 	<meta name="author" content="Daniel Roberts">
 	<meta name="viewport" content="width=device-width"/>
+	
+	<!-- External CSS -->
+	<link rel="stylesheet" href="home.css">
 	
 	<!-- JQuery -->
 	<script
@@ -37,23 +42,60 @@
 	<?php if($_SESSION['loggedin'] == true) : ?>
 	<!-- Main page content -->
 	<div class="container" align="Center">
-		<h1>Co-op Evaluation System<h1>
-		<button class="btn btn-primary">Sign Out</button>
+		<div class="container loggedInHeader">
+			<h1>Co-op Evaluation System</h1>
+			<h3>Welcome <?php echo ($_SESSION['userInfo']['USERNAME']) ?></h3>
+			<a href="logout.php"><button class="btn btn-primary">Sign Out</button></a>
+		</div>
+		<div class="container allCompanies" align="center">
+			<?php
+			
+				$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getCompanies&StudentID=' . $_SESSION['userInfo']['ID'];
+				
+				$ch = curl_init( $url );
+				
+				$timeout = 5;
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+				$response = curl_exec( $ch );
+				$data = json_decode($response, true);
+				
+				curl_close($ch);
+				
+				if ($data)
+				{
+					echo '<h1>Companies</h1>';
+					foreach ($data as $arr)
+					{
+						echo '
+							<div class="company">
+								<h3>Name: ' . $arr['NAME'] . '</h3>
+								<h3>Address: ' . $arr['ADDRESS'] . '</h3>
+							</div>			
+						';
+					}
+				}
+			
+			?>
+		</div>
+		
 	</div>
 	
 	
 	<?php else : ?>
 	<div class="container" align="Center">
-		<form method="POST" id="login" action="">
+		<form method="POST" id="login" action="login.php">
 			<div class="form-group">
 				<label for="username">Username</label>
-				<input type="text" class="form-control" id="username" placeholder="Username">
+				<input type="text" class="form-control" id="username" placeholder="Username" name="username">
 			</div>
 			<div class="form-group">
 				<label for="password">Password</label>
-				<input type="password" class="form-control" id="password" >
+				<input type="password" class="form-control" id="password" placeholder="Password" name="password">
 			</div>
-			<button class="btn btn-default" type="submit">Sign In</button>			
+			<button class="btn btn-primary" type="submit">Sign In</button>			
 		</form>
 	</div>
 	
