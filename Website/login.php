@@ -28,7 +28,7 @@ function login()
 		$_SESSION['userInfo'] = $valid;
 		
 		sleep(1);
-		header( 'Location: http://vm344f.se.rit.edu' ) ;
+		header( 'Location: http://vm344f.se.rit.edu/Website/home.php' ) ;
 		exit("Success");
 	}
 }

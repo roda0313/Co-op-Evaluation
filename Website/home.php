@@ -40,8 +40,44 @@
 	<!-- Main page content -->
 	<div class="container" align="Center">
 		<h1>Co-op Evaluation System<h1>
-		<h3>Welcome <?php $_SESSION['userInfo']['username'] ?><h3>
+		<h3>Welcome <?php echo ($_SESSION['userInfo']['USERNAME']) ?><h3>
 		<a href="logout.php"><button class="btn btn-primary">Sign Out</button></a>
+		
+		<br><br>
+		<div class="container" align="center">
+			<?php
+			
+				$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getCompanies&StudentID=' . $_SESSION['userInfo']['ID'];
+				
+				$ch = curl_init( $url );
+				
+				$timeout = 5;
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+				curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+				$response = curl_exec( $ch );
+				$data = json_decode($response, true);
+				
+				curl_close($ch);
+				
+				if ($data)
+				{
+					echo '<h1>Comanies<h1>';
+					foreach ($data as $arr)
+					{
+						echo '
+							<div class="container">
+								<h3>Name: ' . $arr['NAME'] . '<h3></br>
+								<h3>Address: ' . $arr['ADDRESS'] . '<h3>
+							</div>			
+						';
+					}
+				}
+			
+			?>
+		</div>
+		
 	</div>
 	
 	
