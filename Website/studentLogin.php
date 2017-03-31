@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php 
+	require("userInfo.php");
+	session_start(); 
+?>
 <!doctype html>
 
 <html lang="en">
@@ -38,13 +41,14 @@
 	<!-- Main page content -->
 	<div class="container" align="Center">
 		<h1>Co-op Evaluation System<h1>
+		<h3><?php echo $GLOBALS['userInfo'] ?><h3>
 		<button class="btn btn-primary">Sign Out</button>
 	</div>
 	
 	
 	<?php else : ?>
 	<div class="container" align="Center">
-		<form method="POST" id="login" action="">
+		<form method="POST" id="login" action="<?php loginValid($_POST['username'], $_POST['password']) ?>">
 			<div class="form-group">
 				<label for="username">Username</label>
 				<input type="text" class="form-control" id="username" placeholder="Username">
@@ -66,3 +70,30 @@
 	
 </body>
 </html>
+
+<?php
+
+function loginValid($username, $password)
+{
+	$url = 'http://vm344f.se.rit.edu/API/API.php?team=general&function=login';
+	$myvars = 'username=' . $username . '&password=' . $password;
+	
+	$ch = curl_init( $url );
+	
+	curl_setopt( $ch, CURLOPT_POST, 1);
+	curl_setopt( $ch, CURLOPT_POSTFIELDS, $myvars);
+	curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, 1);
+	curl_setopt( $ch, CURLOPT_HEADER, 0);
+	curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
+
+	$response = curl_exec( $ch );
+	$valid = json_decode($response);
+	
+	if ($valid)
+	{
+		$_SESSION['loggedin'] = true;
+		$GLOBALS['userInfo'] = $valid;
+	}
+}
+
+?>
