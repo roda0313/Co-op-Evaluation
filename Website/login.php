@@ -31,6 +31,11 @@ function login()
 		header( 'Location: http://vm344f.se.rit.edu/Website/home.php' ) ;
 		exit("Success");
 	}
+	
+	echo "Invalid Login";
+	
+	sleep(1);
+	header( 'Location: http://vm344f.se.rit.edu/Website/home.php' ) ;
 }
 
 ?>
