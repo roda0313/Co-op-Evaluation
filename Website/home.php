@@ -66,15 +66,24 @@
 				
 				if ($data)
 				{
+					$_SESSION['companyInfo'] = $data;
+					
 					echo '<h1>Companies</h1>';
 					foreach ($data as $arr)
 					{
 						echo '
 							<div class="company">
 								<h3>Name: ' . $arr['NAME'] . '</h3>
-								<h3>Address: ' . $arr['ADDRESS'] . '</h3>
-							</div>			
+								<h3>Address: ' . $arr['ADDRESS'] . '</h3>		
 						';
+						
+						$sid = $_SESSION['userInfo']['ID'];
+						$cid = $arr['ID'];
+						
+						echo '
+						<h3><a href="http://vm344f.se.rit.edu/Website/functions.php?function=loadStudentForm&studentID='.$sid.'&companyID='.$cid.'"/>Evaluation</h3>
+						';
+						echo "</div>";
 					}
 				}
 			
