@@ -72,6 +72,20 @@
 			localStorage.setItem("q5", input.value);
 			
 		}
+		function saveForm()
+		{
+			$url = "http://vm344f.se.rit.edu/Website/functions.php?function=submitStudentForm";
+		
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					console.log(xmlHttp.responseText);
+				}
+			};
+			
+			xmlHttp.open( "POST", $url, true ); // false for synchronous request
+			xmlHttp.send();
+		}
 	</script>
 </head>
 
@@ -127,8 +141,8 @@
 		<label for="q5">What comments do you have about you employers?</label>
 		<textarea class="form-control" type="text" id="q5" name="q5" required onchange="onFormChange()"></textarea>
 	</div>
-		<input class="btn btn-primary" type="button" value="Save" name="Save Form" onclick="#"/>
-		<input class="btn btn-primary" type="submit" value="Submit" name="Submit Form"/>
+		<input class="btn btn-primary" type="button" value="Save" name="SaveForm" onclick="saveForm()"/>
+		<input class="btn btn-primary" type="submit" value="Submit" name="SubmitForm"/>
 	</form>
 </div>
 </body>

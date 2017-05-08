@@ -15,12 +15,12 @@ if (isset($_GET['function']))
 
 function submitStudentForm()
 {
-	
+	echo "hello this is a student submit form";
 }
 
 function submitEmployeeForm()
 {
-	
+	echo "hello this is a employer submit form";
 }
 
 ?>
