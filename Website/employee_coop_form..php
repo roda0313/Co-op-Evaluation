@@ -98,12 +98,12 @@
 	//get and set company and student ID
 	echo '
 	<div class="form-group">
-		<input id="employeeID" name="employeeID" type="hidden" value="'.$_GET['employeeID'].'></input>
+		<input id="employeeID" name="employeeID" type="hidden" value="'.$_GET['employeeID'].'"></input>
 	</div>
 	';
 	echo '
 	<div class="form-group">
-		<input id="companyID" name="companyID" type="hidden" value="'.$_GET['companyID'].'></input>
+		<input id="companyID" name="companyID" type="hidden" value="'.$_GET['companyID'].'"></input>
 	</div>
 	';
 	?>
