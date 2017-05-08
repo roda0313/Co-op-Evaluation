@@ -167,19 +167,19 @@ function addCompany()
 {
 	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=addCompany';
 			
-		$ch = curl_init( $url );
-		
-		$timeout = 5;
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $_POST);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+	$ch = curl_init( $url );
+	
+	$timeout = 5;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $_POST);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
 
-		$response = curl_exec( $ch );
-		$data = json_decode($response, true);
-		
-		curl_close($ch);
+	$response = curl_exec( $ch );
+	$data = json_decode($response, true);
+	
+	curl_close($ch);
 	
 	header("Location: home.php");
 }

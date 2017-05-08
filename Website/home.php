@@ -101,7 +101,7 @@
 		<div class="container allCompanies" align="center">
 			<?php
 			
-				$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getCompanies&StudentID=' . $_SESSION['userInfo']['ID'];
+				$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getCompanies&studentID=' . $_SESSION['userInfo']['ID'];
 				
 				$ch = curl_init( $url );
 				
