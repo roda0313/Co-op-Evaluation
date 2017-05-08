@@ -156,8 +156,8 @@
 		<label class="radio-inline"><input type="radio" name="q5" value="Yes">Yes</label>
 		<label class="radio-inline"><input type="radio" name="q5" value="No">No</label>
 	</div>
-		<input class="btn btn-primary" type="button" value="Save" name="SaveForm" onclick="saveForm()"/>
-		<input class="btn btn-primary" type="submit" value="Submit" name="SubmitForm"/>
+	<input class="btn btn-primary" type="submit" value="Save" name="SaveForm" onclick="saveForm()"/>
+	<input class="btn btn-primary" type="submit" value="Submit" name="SubmitForm"/>
 	</form>
 </div>
 </body>

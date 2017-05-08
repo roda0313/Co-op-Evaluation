@@ -12,6 +12,8 @@ if (isset($_GET['function']))
 			return loadStudentForm();
 		case "loadEmployeeForm":
 			return loadEmployeeForm();
+		case "addCompany";
+			return addCompany();
 		default:
 			return "An error occurred";
 	}
@@ -89,7 +91,7 @@ function submitStudentForm()
 	
 	if (isset($_GET['save']))
 	{
-		header("Location: coop_form.php?studentID=" . $_POST['studentID'] . "&companyID=" . $_POST['companyID']);
+		//header("Location: coop_form.php?studentID=" . $_POST['studentID'] . "&companyID=" . $_POST['companyID']);
 	}
 	else
 	{
@@ -153,12 +155,33 @@ function submitEmployeeForm()
 	
 	if (isset($_GET['save']))
 	{
-		header("Location: employee_coop_form.php?employeeID=" . $_POST['employeeID'] . "&companyID=" . $_POST['companyID']);
+		//header("Location: employee_coop_form.php?employeeID=" . $_POST['employeeID'] . "&companyID=" . $_POST['companyID']);
 	}
 	else
 	{
 		header("Location: home.php");
 	}
+}
+
+function addCompany()
+{
+	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=addCompany';
+			
+		$ch = curl_init( $url );
+		
+		$timeout = 5;
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $_POST);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+		$response = curl_exec( $ch );
+		$data = json_decode($response, true);
+		
+		curl_close($ch);
+	
+	header("Location: home.php");
 }
 
 ?>

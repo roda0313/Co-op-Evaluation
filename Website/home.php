@@ -29,8 +29,24 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js" crossorigin="anonymous"</script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+	<script>
+	function addCompany()
+	{
+		$url = "http://vm344f.se.rit.edu/Website/functions.php?function=submitStudentForm&save=true";
+		
+		var xmlHttp = new XMLHttpRequest();
+		xmlHttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				console.log(xmlHttp.responseText);
+			}
+		};
+		
+		xmlHttp.open( "POST", $url, true ); // false for synchronous request
+		xmlHttp.send();
+	}
+	</script>
 	
 </head>
 
@@ -40,12 +56,42 @@
 	</nav>	
 	
 	<?php if($_SESSION['loggedin'] == true) : ?>
+	
+	<!-- Add Company Modal -->
+	<div class="modal fade" id="addCompanyModal" tabindex="-1" role="dialog" aria-labelledby="addCompanyModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+			<h2 class="modal-title" id="addCompanyModal">Add Company</h2>
+		  </div>
+		  <div class="modal-body">
+			<form method="post" action="functions.php?function=addCompany">
+				<div class="form-group">
+					<label for="name">Company Name</label>
+					<input class="form-control" type="text" id="name" name="name" required ></input>
+				</div>
+				<div class="form-group">
+					<label for="name">Address</label>
+					<input class="form-control" type="text" id="address" name="address"></input>
+				</div>
+				<input class="btn btn-primary" type="submit" value="Submit" name="SaveForm"/>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+			</form>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
 	<!-- Main page content -->
 	<div class="container" align="Center">
 		<div class="container loggedInHeader">
 			<h1>Co-op Evaluation System</h1>
 			<h3>Welcome <?php echo ($_SESSION['userInfo']['USERNAME']) ?></h3>
 			<a href="logout.php"><button class="btn btn-primary">Sign Out</button></a>
+			<button class="btn btn-primary" data-toggle="modal" data-target="#addCompanyModal">Add Company</button>
 		</div>
 		<div class="container allCompanies" align="center">
 			<?php

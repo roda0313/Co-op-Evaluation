@@ -155,8 +155,8 @@
 		<label for="q5">What comments do you have about you employers?</label>
 		<textarea class="form-control" type="text" id="q5" name="q5" required onchange="onFormChange()"></textarea>
 	</div>
-		<input class="btn btn-primary" type="button" value="Save" name="SaveForm" onclick="saveForm()"/>
-		<input class="btn btn-primary" type="submit" value="Submit" name="SubmitForm"/>
+	<input class="btn btn-primary" type="submit" value="Save" name="SaveForm" onclick="saveForm()"/>
+	<input class="btn btn-primary" type="submit" value="Submit" name="SubmitForm"/>
 	</form>
 </div>
 </body>
