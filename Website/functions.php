@@ -124,6 +124,7 @@ function submitStudentForm()
 		
 		header("Location: home.php");
 	}
+
 }
 
 function submitEmployeeForm()
