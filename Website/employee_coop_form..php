@@ -1,11 +1,3 @@
-<?php
-session_start();
-
-//get and set company and student ID
-echo '<input id="employeeID" type="hidden" value="'.$_GET['employeeID'].'>';
-echo '<input id="companyID" type="hidden" value="'.$_GET['companyID'].'>';
-?>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -99,6 +91,15 @@ echo '<input id="companyID" type="hidden" value="'.$_GET['companyID'].'>';
 </head>
 
 <body>
+
+<?php
+session_start();
+
+//get and set company and student ID
+echo '<input id="employeeID" type="hidden" value="'.$_GET['employeeID'].'>';
+echo '<input id="companyID" type="hidden" value="'.$_GET['companyID'].'>';
+?>
+
 <div class="container">
 	<h1>Employer Coop Evaluation</h1>
 	<form method="post" action="functions.php?submitEmployeeForm">
