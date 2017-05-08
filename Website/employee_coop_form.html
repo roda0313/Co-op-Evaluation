@@ -75,7 +75,7 @@
 		
 		function saveForm()
 		{
-			$url = "http://vm344f.se.rit.edu/Website/functions.php?function=submitEmployeeForm";
+			$url = "http://vm344f.se.rit.edu/Website/functions.php?function=submitEmployeeForm&save=true";
 		
 			var xmlHttp = new XMLHttpRequest();
 			xmlHttp.onreadystatechange = function() {
@@ -92,7 +92,7 @@
 
 <body>
 <div class="container">
-	<h1>Employer  Coop Evaluation</h1>
+	<h1>Employer Coop Evaluation</h1>
 	<form method="post" action="functions.php?submitEmployeeForm">
 	<div class="form-group">
 		<label for="name">Name</label>
