@@ -296,6 +296,13 @@ function generateTempLink()
     curl_close($ch);
 
     return $url;
-}
+	if (isset($_GET['save'])
+	{
+		echo "form will now save";
+	}
+	else
+	{
+		echo "hello this is a employer submit form";
+	}
 
 ?>
