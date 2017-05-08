@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Student Coop Evaluation</title>
+  <title>Employer  Coop Evaluation</title>
   
   <!-- External CSS -->
 	<link rel="stylesheet" href="home.css">
@@ -29,8 +29,8 @@
 		{
 			document.getElementById("name").value = localStorage.getItem("name")
 			document.getElementById("email").value = localStorage.getItem("email");
-			document.getElementById("ename").value = localStorage.getItem("ename");
-			document.getElementById("eemail").value = localStorage.getItem("eemail");
+			document.getElementById("sname").value = localStorage.getItem("sname");
+			document.getElementById("semail").value = localStorage.getItem("semail");
 			document.getElementById("position").value = localStorage.getItem("position");
 			//document.getElementById("q1").value = localStorage.getItem("q1");
 			document.getElementById("q2").value = localStorage.getItem("q2");
@@ -47,11 +47,11 @@
 			input = document.getElementById("email");
 			localStorage.setItem("email", input.value);
 			
-			input = document.getElementById("ename");
-			localStorage.setItem("ename", input.value);
+			input = document.getElementById("sname");
+			localStorage.setItem("sname", input.value);
 			
-			input = document.getElementById("eemail");
-			localStorage.setItem("eemail", input.value);
+			input = document.getElementById("semail");
+			localStorage.setItem("semail", input.value);
 			
 			input = document.getElementById("position");
 			localStorage.setItem("position", input.value);
@@ -72,13 +72,28 @@
 			//localStorage.setItem("q5", input.value);
 			
 		}
+		
+		function saveForm()
+		{
+			$url = "http://vm344f.se.rit.edu/Website/functions.php?function=submitEmployeeForm";
+		
+			var xmlHttp = new XMLHttpRequest();
+			xmlHttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					console.log(xmlHttp.responseText);
+				}
+			};
+			
+			xmlHttp.open( "POST", $url, true ); // false for synchronous request
+			xmlHttp.send();
+		}
 	</script>
 </head>
 
 <body>
 <div class="container">
-	<h1>Student Coop Evaluation</h1>
-	<form method="post" action="functions.php?submitStduentForm">
+	<h1>Employer  Coop Evaluation</h1>
+	<form method="post" action="functions.php?submitEmployeeForm">
 	<div class="form-group">
 		<label for="name">Name</label>
 		<input class="form-control" type="text" id="name" name="name" required onchange="onFormChange()"></input>
@@ -124,12 +139,12 @@
 		<label class="radio-inline"><input type="radio" name="q4" value="5">5</label>
 	</div>
 	<div class="form-group">
-		<label for="q5">Would you ask he or she back given the opportunity?</label>
+		<label for="q5">Would you ask he or she back given the opportunity?</label><br>
 		<label class="radio-inline"><input type="radio" name="q5" value="Yes">Yes</label>
 		<label class="radio-inline"><input type="radio" name="q5" value="No">No</label>
 	</div>
-		<input class="btn btn-primary" type="button" value="Save" name="Save Form" onclick="#"/>
-		<input class="btn btn-primary" type="submit" value="Submit" name="Submit Form"/>
+		<input class="btn btn-primary" type="button" value="Save" name="SaveForm" onclick="saveForm()"/>
+		<input class="btn btn-primary" type="submit" value="Submit" name="SubmitForm"/>
 	</form>
 </div>
 </body>
