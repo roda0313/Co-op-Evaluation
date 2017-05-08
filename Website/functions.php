@@ -15,12 +15,26 @@ if (isset($_GET['function']))
 
 function submitStudentForm()
 {
-	echo "hello this is a student submit form";
+	if (isset($_GET['save'])
+	{
+		echo "form will now save";
+	}
+	else
+	{
+		echo "hello this is a student submit form";
+	}
 }
 
 function submitEmployeeForm()
 {
-	echo "hello this is a employer submit form";
+	if (isset($_GET['save'])
+	{
+		echo "form will now save";
+	}
+	else
+	{
+		echo "hello this is a employer submit form";
+	}
 }
 
 ?>
