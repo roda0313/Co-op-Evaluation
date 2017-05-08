@@ -70,6 +70,11 @@
 		  <div class="modal-body">
 			<form method="post" action="functions.php?function=addCompany">
 				<div class="form-group">
+				<?php
+					echo '<input class="form-control" type="hidden" id="studentID" name="studentID" value="'.$_SESSION['userInfo']['ID'].'"></input>';
+				?>
+				</div>
+				<div class="form-group">
 					<label for="name">Company Name</label>
 					<input class="form-control" type="text" id="name" name="name" required ></input>
 				</div>
