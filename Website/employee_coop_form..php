@@ -96,8 +96,8 @@
 	<form method="post" action="functions.php?submitEmployeeForm">
 	<?php
 	//get and set company and student ID
-	echo '<input id="employeeID" name="employeeID" type="hidden" value="'.$_GET['employeeID'].'>';
-	echo '<input id="companyID" name="companyID" type="hidden" value="'.$_GET['companyID'].'>';
+	echo '<input id="employeeID" name="employeeID" type="hidden" value="'.$_GET['employeeID'].'/>';
+	echo '<input id="companyID" name="companyID" type="hidden" value="'.$_GET['companyID'].'/>';
 	?>
 	<div class="form-group">
 		<label for="name">Name</label>

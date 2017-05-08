@@ -93,8 +93,8 @@
 
 <?php
 //get and set company and student ID
-echo '<input id="studentID" type="hidden" value="'.$_GET['studentID'].'>';
-echo '<input id="companyID" type="hidden" value="'.$_GET['companyID'].'>';
+echo '<input id="studentID" type="hidden" value="'.$_GET['studentID'].'/>';
+echo '<input id="companyID" type="hidden" value="'.$_GET['companyID'].'/>';
 ?>
 
 <div class="container">
