@@ -92,8 +92,6 @@
 <body onload="loadFromStorage()">
 
 <?php
-session_start();
-
 //get and set company and student ID
 echo '<input id="studentID" type="hidden" value="'.$_GET['studentID'].'>';
 echo '<input id="companyID" type="hidden" value="'.$_GET['companyID'].'>';
@@ -102,6 +100,11 @@ echo '<input id="companyID" type="hidden" value="'.$_GET['companyID'].'>';
 <div class="container">
 	<h1>Student Coop Evaluation</h1>
 	<form method="post" action="functions.php?function=submitStudentForm">
+	<?php
+	//get and set company and student ID
+	echo '<input id="studentID" name="studentID" type="hidden" value="'.$_GET['studentID'].'>';
+	echo '<input id="companyID" name="companyID" type="hidden" value="'.$_GET['companyID'].'>';
+	?>
 	<div class="form-group">
 		<label for="name">Name</label>
 		<input class="form-control" type="text" id="name" name="name" required onchange="onFormChange()" ></input>

@@ -91,18 +91,14 @@
 </head>
 
 <body>
-
-<?php
-session_start();
-
-//get and set company and student ID
-echo '<input id="employeeID" type="hidden" value="'.$_GET['employeeID'].'>';
-echo '<input id="companyID" type="hidden" value="'.$_GET['companyID'].'>';
-?>
-
 <div class="container">
 	<h1>Employer Coop Evaluation</h1>
 	<form method="post" action="functions.php?submitEmployeeForm">
+	<?php
+	//get and set company and student ID
+	echo '<input id="employeeID" name="employeeID" type="hidden" value="'.$_GET['employeeID'].'>';
+	echo '<input id="companyID" name="companyID" type="hidden" value="'.$_GET['companyID'].'>';
+	?>
 	<div class="form-group">
 		<label for="name">Name</label>
 		<input class="form-control" type="text" id="name" name="name" required onchange="onFormChange()"></input>
