@@ -144,9 +144,8 @@
 						$cid = $arr['ID'];
 						
 						echo '
-						<a href="http://vm344f.se.rit.edu/Website/functions.php?function=loadStudentForm&studentID='.$sid.'&companyID='.$cid.'"><h3>Stucent Evaluation</h3></a>
+						<a href="http://vm344f.se.rit.edu/Website/functions.php?function=loadStudentForm&studentID='.$sid.'&companyID='.$cid.'"><h3>Student Evaluation</h3></a><br>
 						';
-						echo "</div>";
 						
 						echo '
 						<a href="http://vm344f.se.rit.edu/Website/functions.php?function=loadEmployeeForm&companyID='.$cid.'"><h3>Employer Evaluation</h3></a>
