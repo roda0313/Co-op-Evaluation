@@ -27,8 +27,8 @@
 	<script>
 	function getStorageFromAPI()
 	{
-		var eid = document.getElementById("employeeID")
-		var cid = document.getElementById("companyID");
+		var eid = document.getElementById("employeeID").value;
+		var cid = document.getElementById("companyID").value;
 		
 		var url = "http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getEmployerEvaluation&employeeID=" + eid + "&companyID=" + cid;
 	

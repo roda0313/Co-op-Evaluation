@@ -27,8 +27,8 @@
 	<script>
 	function getStorageFromAPI()
 	{
-		var sid = document.getElementById("studentID")
-		var cid = document.getElementById("companyID");
+		var sid = document.getElementById("studentID").value;
+		var cid = document.getElementById("companyID").value;
 		
 		var url = "http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getStudentEvaluation&studentID=" + sid + "&companyID=" + cid;
 	
