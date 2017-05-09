@@ -21,7 +21,6 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/84/three.min.js" crossorigin="anonymous"</script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   
 	<script>
@@ -38,16 +37,16 @@
 				var data = JSON.parse(xmlHttp.responseText);
 				if (data.length > 0)
 				{					
-					localStorage.setItem("name", data[0].name)
-					localStorage.setItem("email", data[0].email);
-					localStorage.setItem("ename", data[0].sname);
-					localStorage.setItem("eemail", data[0].semail);
-					localStorage.setItem("position", data[0].position);
-					localStorage.setItem("q1", data[0].q1);
-					localStorage.setItem("q2", data[0].q2);
-					localStorage.setItem("q3", data[0].q3);
-					localStorage.setItem("q4", data[0].q4);
-					localStorage.setItem("q5", data[0].q5);
+					localStorage.setItem("name", data[0].NAME)
+					localStorage.setItem("email", data[0].EMAIL);
+					localStorage.setItem("ename", data[0].ENAME);
+					localStorage.setItem("eemail", data[0].EEMAIL);
+					localStorage.setItem("position", data[0].POSITION);
+					localStorage.setItem("q1", data[0].QUESTION1);
+					localStorage.setItem("q2", data[0].QUESTION2);
+					localStorage.setItem("q3", data[0].QUESTION3);
+					localStorage.setItem("q4", data[0].QUESTION4);
+					localStorage.setItem("q5", data[0].QUESTION5);
 				}
 			}
 		};
@@ -64,10 +63,11 @@
 		document.getElementById("ename").value = localStorage.getItem("ename");
 		document.getElementById("eemail").value = localStorage.getItem("eemail");
 		document.getElementById("position").value = localStorage.getItem("position");
+		$("input[name=q1][value=" + localStorage.getItem("q1") + "]").prop("checked",true);
 		document.getElementById("q1").value = localStorage.getItem("q1");
 		document.getElementById("q2").value = localStorage.getItem("q2");
 		document.getElementById("q3").value = localStorage.getItem("q3");
-		document.getElementById("q4").value = localStorage.getItem("q4");
+		$("input[name=q4][value=" + localStorage.getItem("q4") + "]").prop("checked",true);
 		document.getElementById("q5").value = localStorage.getItem("q5");
 	}
 
@@ -88,8 +88,8 @@
 		input = document.getElementById("position");
 		localStorage.setItem("position", input.value);
 		
-		//input = document.getElementById("q1");
-		//localStorage.setItem("q1", input.value);
+		input = $('input[name=q1]:checked').val()
+		localStorage.setItem("q1", input.value);
 		
 		input = document.getElementById("q2");
 		localStorage.setItem("q2", input.value);
@@ -97,8 +97,8 @@
 		input = document.getElementById("q3");
 		localStorage.setItem("q3", input.value);
 		
-		//input = document.getElementById("q4");
-		//localStorage.setItem("q4", input.value);
+		input = $('input[name=q4]:checked').val()
+		localStorage.setItem("q4", input.value);
 		
 		input = document.getElementById("q5");
 		localStorage.setItem("q5", input.value);
