@@ -37,7 +37,7 @@
 				var data = JSON.parse(xmlHttp.responseText);
 				if (data.length > 0)
 				{					
-					document.getElementById("name").value = data[0].NAME);
+					document.getElementById("name").value = data[0].NAME;
 					document.getElementById("email").value = data[0].EMAIL;
 					document.getElementById("ename").value = data[0].ENAME;
 					document.getElementById("eemail").value = data[0].EEMAIL;
