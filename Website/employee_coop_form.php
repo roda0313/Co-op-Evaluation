@@ -58,7 +58,7 @@
 	{
 		getStorageFromAPI();
 		
-		document.getElementById("name").value = localStorage.getItem("name")
+		document.getElementById("name").value = localStorage.getItem("name");
 		document.getElementById("email").value = localStorage.getItem("email");
 		document.getElementById("sname").value = localStorage.getItem("sname");
 		document.getElementById("semail").value = localStorage.getItem("semail");

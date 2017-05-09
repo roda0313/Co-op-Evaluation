@@ -58,13 +58,12 @@
 	{
 		getStorageFromAPI();
 		
-		document.getElementById("name").value = localStorage.getItem("name")
+		document.getElementById("name").value = localStorage.getItem("name");
 		document.getElementById("email").value = localStorage.getItem("email");
 		document.getElementById("ename").value = localStorage.getItem("ename");
 		document.getElementById("eemail").value = localStorage.getItem("eemail");
 		document.getElementById("position").value = localStorage.getItem("position");
 		$("input[name=q1][value=" + localStorage.getItem("q1") + "]").prop("checked",true);
-		document.getElementById("q1").value = localStorage.getItem("q1");
 		document.getElementById("q2").value = localStorage.getItem("q2");
 		document.getElementById("q3").value = localStorage.getItem("q3");
 		$("input[name=q4][value=" + localStorage.getItem("q4") + "]").prop("checked",true);
