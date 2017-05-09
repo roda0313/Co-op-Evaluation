@@ -113,7 +113,7 @@
 <body onload="loadFromStorage()" onunload="clearStorage()">
 <div class="container">
 	<h1>Employer Coop Evaluation</h1>
-	<form method="post" action="functions.php?submitEmployeeForm">
+	<form method="post" action="functions.php?function=submitEmployeeForm">
 	<?php
 	//get and set company and student ID
 	echo '
