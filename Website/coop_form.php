@@ -24,7 +24,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   
 	<script>
-	function getStorageFromAPI()
+	function loadFromStorage()
 	{
 		var sid = document.getElementById("studentID").value;
 		var cid = document.getElementById("companyID").value;
@@ -37,37 +37,22 @@
 				var data = JSON.parse(xmlHttp.responseText);
 				if (data.length > 0)
 				{					
-					localStorage.setItem("name", data[0].NAME)
-					localStorage.setItem("email", data[0].EMAIL);
-					localStorage.setItem("ename", data[0].ENAME);
-					localStorage.setItem("eemail", data[0].EEMAIL);
-					localStorage.setItem("position", data[0].POSITION);
-					localStorage.setItem("q1", data[0].QUESTION1);
-					localStorage.setItem("q2", data[0].QUESTION2);
-					localStorage.setItem("q3", data[0].QUESTION3);
-					localStorage.setItem("q4", data[0].QUESTION4);
-					localStorage.setItem("q5", data[0].QUESTION5);
+					document.getElementById("name").value = data[0].NAME);
+					document.getElementById("email").value = data[0].EMAIL;
+					document.getElementById("ename").value = data[0].ENAME;
+					document.getElementById("eemail").value = data[0].EEMAIL;
+					document.getElementById("position").value = data[0].POSITION;
+					$("input[name=q1][value=" + data[0].QUESTION1 + "]").prop("checked",true);
+					document.getElementById("q2").value = data[0].QUESTION2;
+					document.getElementById("q3").value =  data[0].QUESTION3;
+					$("input[name=q4][value=" +  data[0].QUESTION4 + "]").prop("checked",true);
+					document.getElementById("q5").value =  data[0].QUESTION5;
 				}
 			}
 		};
 		
 		xmlHttp.open( "GET", url, true ); // false for synchronous request
 		xmlHttp.send();
-	}
-	function loadFromStorage()
-	{
-		getStorageFromAPI();
-		
-		document.getElementById("name").value = localStorage.getItem("name");
-		document.getElementById("email").value = localStorage.getItem("email");
-		document.getElementById("ename").value = localStorage.getItem("ename");
-		document.getElementById("eemail").value = localStorage.getItem("eemail");
-		document.getElementById("position").value = localStorage.getItem("position");
-		$("input[name=q1][value=" + localStorage.getItem("q1") + "]").prop("checked",true);
-		document.getElementById("q2").value = localStorage.getItem("q2");
-		document.getElementById("q3").value = localStorage.getItem("q3");
-		$("input[name=q4][value=" + localStorage.getItem("q4") + "]").prop("checked",true);
-		document.getElementById("q5").value = localStorage.getItem("q5");
 	}
 
 	function onFormChange()
