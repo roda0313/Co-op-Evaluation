@@ -65,7 +65,7 @@
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 			  <span aria-hidden="true">&times;</span>
 			</button>
-			<h2 class="modal-title" id="addCompanyModal">Add Company</h2>
+			<h2 class="modal-title" id="addCompanyModal">Add Coop</h2>
 		  </div>
 		  <div class="modal-body">
 			<form method="post" action="functions.php?function=addCompany">
@@ -81,6 +81,18 @@
 				<div class="form-group">
 					<label for="name">Address</label>
 					<input class="form-control" type="text" id="address" name="address"></input>
+				</div>
+				<div class="form-group">
+					<label for="name">Employee First Name</label>
+					<input class="form-control" type="text" id="fname" name="fname"></input>
+				</div>
+				<div class="form-group">
+					<label for="name">Employee Last Name</label>
+					<input class="form-control" type="text" id="lname" name="lname"></input>
+				</div>
+				<div class="form-group">
+					<label for="name">Employee Email</label>
+					<input class="form-control" type="text" id="email" name="email"></input>
 				</div>
 				<input class="btn btn-primary" type="submit" value="Submit" name="SaveForm"/>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
@@ -132,7 +144,12 @@
 						$cid = $arr['ID'];
 						
 						echo '
-						<a href="http://vm344f.se.rit.edu/Website/functions.php?function=loadStudentForm&studentID='.$sid.'&companyID='.$cid.'"><h3>Evaluation</h3></a>
+						<a href="http://vm344f.se.rit.edu/Website/functions.php?function=loadStudentForm&studentID='.$sid.'&companyID='.$cid.'"><h3>Stucent Evaluation</h3></a>
+						';
+						echo "</div>";
+						
+						echo '
+						<a href="http://vm344f.se.rit.edu/Website/functions.php?function=loadEmployeeForm&companyID='.$cid.'"><h3>Employer Evaluation</h3></a>
 						';
 						echo "</div>";
 					}

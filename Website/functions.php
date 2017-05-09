@@ -14,6 +14,8 @@ if (isset($_GET['function']))
 			return loadEmployeeForm();
 		case "addCompany";
 			return addCompany();
+		case "handleTempLinkLoad":
+			return handleTempLinkLoad();
 		default:
 			return "An error occurred";
 	}
@@ -30,7 +32,25 @@ function loadStudentForm()
 //requires employee id and company id
 function loadEmployeeForm()
 {
-	$eid = $_GET['employeeID'];
+	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getEmployers&companyID=' $_GET['companyID'];
+				
+	$ch = curl_init( $url );
+	
+	$timeout = 5;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+	$response = curl_exec( $ch );
+	$data = json_decode($response, true);
+	
+	curl_close($ch);
+	
+	if ($data != null)
+	{
+		$eid = $data[0]->"ID"
+	}
+	
 	$cid = $_GET['companyID'];
 	header('Location: http://vm344f.se.rit.edu/Website/employee_coop_form.php?employeeID=' . $eid . '&companyID=' . $cid);
 }
@@ -181,7 +201,51 @@ function addCompany()
 	
 	curl_close($ch);
 	
+	//get companies so we can get the last added company
+	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getCompanies';
+			
+	$ch = curl_init( $url );
+	
+	$timeout = 5;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $_POST);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+	$response = curl_exec( $ch );
+	$data = json_decode($response, true);
+	
+	curl_close($ch);
+	
+	$_POST['companyID'] = end($data)->"ID";
+	addEmployer();
+	
 	header("Location: home.php");
+}
+
+function addEmployer()
+{
+	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=addEmployer';
+			
+	$ch = curl_init( $url );
+	
+	$timeout = 5;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $_POST);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+	$response = curl_exec( $ch );
+	$data = json_decode($response, true);
+	
+	curl_close($ch);
+}
+
+function handleTempLinkLoad()
+{
+	
 }
 
 ?>
