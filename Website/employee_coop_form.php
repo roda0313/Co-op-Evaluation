@@ -172,7 +172,7 @@
 		<label class="radio-inline"><input type="radio" name="q4" value="5">5</label>
 	</div>
 	<div class="form-group">
-		<label for="q5">Would you ask he or she back given the opportunity?</label><br>
+		<label for="q5">Would you ask him or her back given the opportunity?</label><br>
 		<label class="radio-inline"><input type="radio" name="q5" value="Yes">Yes</label>
 		<label class="radio-inline"><input type="radio" name="q5" value="No">No</label>
 	</div>
