@@ -31,8 +31,8 @@ function loadStudentForm()
 
 //requires employee id and company id
 function loadEmployeeForm()
-{
-	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getEmployers&companyID=' $_GET['companyID'];
+{	
+	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getEmployers&companyID='.$_GET['companyID'];
 				
 	$ch = curl_init( $url );
 	
@@ -48,11 +48,15 @@ function loadEmployeeForm()
 	
 	if ($data != null)
 	{
-		$eid = $data[0]->"ID"
+		$eid = $data[0]['ID'];
+		$cid = $_GET['companyID'];
+		header('Location: http://vm344f.se.rit.edu/Website/employee_coop_form.php?employeeID=' . $eid . '&companyID=' . $cid);
+	}
+	else
+	{
+		echo "An error occurred... go back and try again"; //change this eventually
 	}
 	
-	$cid = $_GET['companyID'];
-	header('Location: http://vm344f.se.rit.edu/Website/employee_coop_form.php?employeeID=' . $eid . '&companyID=' . $cid);
 }
 
 function submitStudentForm()
@@ -218,7 +222,7 @@ function addCompany()
 	
 	curl_close($ch);
 	
-	$_POST['companyID'] = end($data)->"ID";
+	$_POST['companyID'] = end($data)['ID'];
 	addEmployer();
 	
 	header("Location: home.php");
@@ -245,6 +249,8 @@ function addEmployer()
 
 function handleTempLinkLoad()
 {
+	$link = $_GET['link'];
+	
 	
 }
 
