@@ -1,3 +1,35 @@
+<?php
+session_start();
+
+if ($_SESSION['loggedin'] == true)
+{
+	$userValid = true;
+}
+else
+{
+	$userValid = false;
+	
+	$url = "http://vm344f.se.rit.edu/Website/functions.php?function=generateTempLink&companyID=".$_GET['companyID']."&studentID=".$_SESSION['userInfo']['ID'];
+			
+	$ch = curl_init( $url );
+	
+	$timeout = 5;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+	$response = curl_exec( $ch );
+	$data = json_decode($response, true);
+	
+	if ($data != null)
+	{
+		$link = end($data)['LINK'];
+	}
+	
+	curl_close($ch);
+}
+?>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">

@@ -16,6 +16,8 @@ if (isset($_GET['function']))
 			return addCompany();
 		case "handleTempLinkLoad":
 			return handleTempLinkLoad();
+		case "generateTempLink":
+			return generateTempLink();
 		default:
 			return "An error occurred";
 	}
@@ -251,7 +253,49 @@ function handleTempLinkLoad()
 {
 	$link = $_GET['link'];
 	
+	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=addEmployer';
+			
+	$ch = curl_init( $url );
 	
+	$timeout = 5;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $_POST);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+	$response = curl_exec( $ch );
+	$data = json_decode($response, true);
+	
+	curl_close($ch);
+}
+
+function generateTempLink()
+{
+	$cid = $_GET['companyID'];
+	$sid = $_GET['studentID'];
+	
+	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getTempLink&studentID=' . $sid . '&companyID=' . $cid;
+			
+	$ch = curl_init( $url );
+	
+	$timeout = 5;
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+	$response = curl_exec( $ch );
+	$data = json_decode($response, true);
+	
+	if ($data != null)
+	{
+		$link = end($data)['LINK'];
+		$url = "http://vm344f.se.rit.edu/Website/employee_coop_form?link=".$link;
+	}
+	
+	curl_close($ch);
+	
+	return $url;
 }
 
 ?>
