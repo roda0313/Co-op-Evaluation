@@ -15,6 +15,7 @@
       <file leaf-file-name="home.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="2295">
               <caret line="153" column="21" lean-forward="false" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
               <folding>
@@ -32,6 +33,19 @@
                 <marker date="1494394207000" expanded="true" signature="5493:5644" ph="..." />
                 <marker date="1494394207000" expanded="true" signature="5672:5827" ph="..." />
                 <marker date="1494394207000" expanded="true" signature="5960:6082" ph="..." />
+=======
+            <state relative-caret-position="2730">
+              <caret line="182" column="52" lean-forward="false" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
+              <folding>
+                <marker date="1494393227000" expanded="true" signature="5940:6086" ph="..." />
+                <marker date="1494393227000" expanded="true" signature="5940:6103" ph="..." />
+                <marker date="1494393227000" expanded="true" signature="6047:6086" ph="..." />
+                <marker date="1494393227000" expanded="true" signature="6670:7172" ph="..." />
+                <marker date="1494393227000" expanded="true" signature="6723:7164" ph="..." />
+                <marker date="1494393227000" expanded="true" signature="6751:6902" ph="..." />
+                <marker date="1494393227000" expanded="true" signature="6930:7085" ph="..." />
+                <marker date="1494393227000" expanded="true" signature="7218:7340" ph="..." />
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
               </folding>
             </state>
           </provider>
@@ -40,23 +54,37 @@
       <file leaf-file-name="home.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home.css">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="577">
               <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+=======
+            <state relative-caret-position="892">
+              <caret line="60" column="1" lean-forward="false" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/functions.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
               <caret line="64" column="1" lean-forward="false" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
+=======
+      <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/functions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-171">
+              <caret line="361" column="39" lean-forward="false" selection-start-line="361" selection-start-column="39" selection-end-line="361" selection-end-column="39" />
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="employee_coop_form.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/employee_coop_form.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -84,6 +112,16 @@
                 <marker date="1494394207000" expanded="true" signature="6649:6862" ph="..." />
                 <marker date="1494394207000" expanded="true" signature="6888:7369" ph="..." />
                 <marker date="1494394207000" expanded="true" signature="7395:7652" ph="..." />
+=======
+      <file leaf-file-name="employee_coop_form.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/employee_coop_form.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="33" column="6" lean-forward="false" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+              <folding>
+                <marker date="1494388209000" expanded="true" signature="6260:6366" ph="..." />
+                <marker date="1494388209000" expanded="true" signature="6404:6507" ph="..." />
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
               </folding>
             </state>
           </provider>
@@ -95,9 +133,15 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/employee_coop_form.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/home.css" />
         <option value="$PROJECT_DIR$/home.php" />
         <option value="$PROJECT_DIR$/functions.php" />
+=======
+        <option value="$PROJECT_DIR$/functions.php" />
+        <option value="$PROJECT_DIR$/home.css" />
+        <option value="$PROJECT_DIR$/home.php" />
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
       </list>
     </option>
   </component>
@@ -246,12 +290,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1494378638200</updated>
+<<<<<<< HEAD
       <workItem from="1494378640218" duration="9532000" />
+=======
+      <workItem from="1494378640218" duration="8606000" />
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="9532000" />
+=======
+    <option name="totallyTimeSpent" value="8606000" />
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -290,6 +342,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/home.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="2295">
           <caret line="153" column="21" lean-forward="false" selection-start-line="153" selection-start-column="21" selection-end-line="153" selection-end-column="21" />
           <folding>
@@ -307,18 +360,37 @@
             <marker date="1494394207000" expanded="true" signature="5493:5644" ph="..." />
             <marker date="1494394207000" expanded="true" signature="5672:5827" ph="..." />
             <marker date="1494394207000" expanded="true" signature="5960:6082" ph="..." />
+=======
+        <state relative-caret-position="2730">
+          <caret line="182" column="52" lean-forward="false" selection-start-line="182" selection-start-column="52" selection-end-line="182" selection-end-column="52" />
+          <folding>
+            <marker date="1494393227000" expanded="true" signature="5940:6086" ph="..." />
+            <marker date="1494393227000" expanded="true" signature="5940:6103" ph="..." />
+            <marker date="1494393227000" expanded="true" signature="6047:6086" ph="..." />
+            <marker date="1494393227000" expanded="true" signature="6670:7172" ph="..." />
+            <marker date="1494393227000" expanded="true" signature="6723:7164" ph="..." />
+            <marker date="1494393227000" expanded="true" signature="6751:6902" ph="..." />
+            <marker date="1494393227000" expanded="true" signature="6930:7085" ph="..." />
+            <marker date="1494393227000" expanded="true" signature="7218:7340" ph="..." />
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/home.css">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="577">
           <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+=======
+        <state relative-caret-position="892">
+          <caret line="60" column="1" lean-forward="false" selection-start-line="60" selection-start-column="1" selection-end-line="60" selection-end-column="1" />
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/employee_coop_form.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -354,6 +426,24 @@
         <state relative-caret-position="289">
           <caret line="64" column="1" lean-forward="false" selection-start-line="64" selection-start-column="1" selection-end-line="64" selection-end-column="1" />
           <folding />
+=======
+    <entry file="file://$PROJECT_DIR$/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-171">
+          <caret line="361" column="39" lean-forward="false" selection-start-line="361" selection-start-column="39" selection-end-line="361" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/employee_coop_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="6" lean-forward="false" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+          <folding>
+            <marker date="1494388209000" expanded="true" signature="6260:6366" ph="..." />
+            <marker date="1494388209000" expanded="true" signature="6404:6507" ph="..." />
+          </folding>
+>>>>>>> added temporary link functionality (may not work so don't merge right away)
         </state>
       </provider>
     </entry>

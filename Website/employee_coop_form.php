@@ -87,6 +87,37 @@ else
 		xmlHttp.send();
 	}
 
+    function loadTempFromStorage()
+    {
+        var sid = document.getElementById("employeeID").value;
+        var cid = document.getElementById("companyID").value;
+
+        var url = "http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getEmployerEvaluation&employeeID=" + eid + "&companyID=" + cid;
+
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var data = JSON.parse(xmlHttp.responseText);
+                if (data.length > 0)
+                {
+                    document.getElementById("name").value = data[0].NAME;
+                    document.getElementById("email").value = data[0].EMAIL;
+                    document.getElementById("sname").value = data[0].SNAME;
+                    document.getElementById("semail").value = data[0].SEMAIL;
+                    document.getElementById("position").value = data[0].POSITION;
+                    $("input[name=q1][value=" + data[0].QUESTION1 + "]").prop("checked",true);
+                    document.getElementById("q2").value = data[0].QUESTION2;
+                    document.getElementById("q3").value = data[0].QUESTION3;
+                    $("input[name=q4][value=" + data[0].QUESTION4 + "]").prop("checked",true);
+                    $("input[name=q5][value=" + data[0].QUESTION5 + "]").prop("checked",true);
+                }
+            }
+        };
+
+        xmlHttp.open( "GET", url, true ); // false for synchronous request
+        xmlHttp.send();
+    }
+
 	function onFormChange()
 	{	
 		var input = document.getElementById("name");

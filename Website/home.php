@@ -46,14 +46,16 @@
 		xmlHttp.open( "POST", $url, true ); // false for synchronous request
 		xmlHttp.send();
 	}
+
+	function getLink(){
+	    $url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getEmployerEvaluation&employeeID=' . $_POST['employeeID'] . "&companyID=" . $_POST['companyID']';
+    }
+
 	</script>
 	
 </head>
 
 <body>
-	<nav class="navbar navbar-default">
-		
-	</nav>	
 	
 	<?php if($_SESSION['loggedin'] == true) : ?>
 	
@@ -104,12 +106,15 @@
 	
 	<!-- Main page content -->
 	<div class="container" align="Center">
-		<div class="container loggedInHeader">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation"
+                 id="SiteNavBar">
+            <div class="container loggedInHeader">
 			<h1>Co-op Evaluation System</h1>
 			<h3>Welcome <?php echo ($_SESSION['userInfo']['USERNAME']) ?></h3>
 			<a href="logout.php"><button class="btn btn-primary">Sign Out</button></a>
 			<button class="btn btn-primary" data-toggle="modal" data-target="#addCompanyModal">Add Company</button>
-		</div>
+		    </div>
+            </nav>
 		<div class="container allCompanies" align="center">
 			<?php
 			
@@ -134,14 +139,36 @@
 					echo '<h1>Companies</h1>';
 					foreach ($data as $arr)
 					{
-						echo '
-							<div class="company">
+                        $sid = $_SESSION['userInfo']['ID'];
+                        $cid = $arr['ID'];
+
+                        $url = "http://vm344f.se.rit.edu/Website/functions.php?function=shareTempLink&companyID=".$_GET['companyID']."&studentID=".$_SESSION['userInfo']['ID'];
+
+                        $ch = curl_init( $url );
+
+                        $timeout = 5;
+                        curl_setopt($ch, CURLOPT_URL, $url);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+                        $response = curl_exec( $ch );
+                        $data = json_decode($response, true);
+
+                        $link = end($data)['LINK'];
+
+                        curl_close($ch);
+
+					    echo '
+							<div class="col-md-12">
+                            <div class="col-md-4"></div>
+							<div class="company col-md-4">
 								<h3>Name: ' . $arr['NAME'] . '</h3>
-								<h3>Address: ' . $arr['ADDRESS'] . '</h3>		
+								<h3>Address: ' . $arr['ADDRESS'] . '</h3>
+								<h3>Link: '. $link .' </h3>
+								
 						';
 						
-						$sid = $_SESSION['userInfo']['ID'];
-						$cid = $arr['ID'];
+						
 						
 						echo '
 						<a href="http://vm344f.se.rit.edu/Website/functions.php?function=loadStudentForm&studentID='.$sid.'&companyID='.$cid.'"><h3>Student Evaluation</h3></a>
@@ -150,7 +177,12 @@
 						echo '
 						<a href="http://vm344f.se.rit.edu/Website/functions.php?function=loadEmployeeForm&companyID='.$cid.'"><h3>Employer Evaluation</h3></a>
 						';
-						echo "</div>";
+                        echo "</div>";
+						echo '
+						
+					    <div class="col-md-4"></div>
+						';
+
 					}
 				}
 			
