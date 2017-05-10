@@ -208,7 +208,7 @@ function addCompany()
 	curl_close($ch);
 	
 	//get companies so we can get the last added company
-	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getCompanies';
+	$url = 'http://vm344f.se.rit.edu/API/API.php?team=coop_eval&function=getCompanies&studentID='.$_POST['studentID'];
 			
 	$ch = curl_init( $url );
 	

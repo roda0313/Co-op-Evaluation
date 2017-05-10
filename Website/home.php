@@ -68,7 +68,9 @@
 			<h2 class="modal-title" id="addCompanyModal">Add Coop</h2>
 		  </div>
 		  <div class="modal-body">
-			<form method="post" action="functions.php?function=addCompany">
+			<?php
+				echo '<form method="post" action="functions.php?function=addCompany?&studentID='.$_SESSION['userInfo']['ID'].'>';
+			?>
 				<div class="form-group">
 				<?php
 					echo '<input class="form-control" type="hidden" id="studentID" name="studentID" value="'.$_SESSION['userInfo']['ID'].'"></input>';
