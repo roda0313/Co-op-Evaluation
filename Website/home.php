@@ -69,7 +69,7 @@
 		  </div>
 		  <div class="modal-body">
 			<?php
-				echo '<form method="post" action="functions.php?function=addCompany?&studentID='.$_SESSION['userInfo']['ID'].'>';
+				echo '<form method="post" action="functions.php?function=addCompany?&studentID='.$_SESSION['userInfo']['ID'].'">';
 			?>
 				<div class="form-group">
 				<?php
@@ -94,7 +94,7 @@
 				</div>
 				<div class="form-group">
 					<label for="name">Employee Email</label>
-					<input class="form-control" type="text" id="email" name="email"></input>
+					<input class="form-control" type="email" id="email" name="email"></input>
 				</div>
 				<input class="btn btn-primary" type="submit" value="Submit" name="SaveForm"/>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
